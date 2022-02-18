@@ -32,8 +32,25 @@ namespace randRectangle
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int min = 2;
+            int max = 10;
+            int length;
+            int width;
+
+            MakeRectangle(min, max, out length, out width);
+            Rectangle theBox = new Rectangle(length, width);
+
+            Console.WriteLine("Length: " + theBox.Length);
+            Console.WriteLine("Width: " + theBox.Width);
+            Console.WriteLine("Area: " + Utility.calcArea(theBox.Length, theBox.Width));
+            Console.WriteLine("Perimeter: " + Utility.calcPerimeter(theBox.Length, theBox.Width));
         }
         
+        static void MakeRectangle(int min, int max, out int length, out int width)
+        {
+            var rand = new Random();
+            length = rand.Next(min, max);
+            width = rand.Next(min, max);
+        }
     }
 }
